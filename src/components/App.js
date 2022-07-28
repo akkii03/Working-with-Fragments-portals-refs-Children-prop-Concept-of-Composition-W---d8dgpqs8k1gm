@@ -16,7 +16,6 @@ class App extends Component {
     { name: 'Museum Island', country: 'Germany' },
     { name: 'Munnar', country: 'India' },
     { name: 'Leh Ladakh', country: 'India' },
-    { name: 'Goa', country: 'India' },
     { name: 'Agra', country: 'India' },
     { name: 'Dalhousie', country: 'India' },
     { name: 'Coorg', country: 'India' },
@@ -37,19 +36,17 @@ class App extends Component {
   }
 
   render() {
-
- const indiaPlace = this.cityList.filter(place=> place.country==='India' && place.name==='Goa' || place.name==='Darjeeling' || place.name==='Lonavala');
-
-
+    let holidayList = this.cityList.filter((place)=> {
+      if(place.country==='India' && (place.name==='Goa' || place.name==='Darjeeling' || place.name==='Lonavala'))
+        return place
+    })
+    
     return (
       <div id="main">
-        <ol>
-          {
-            indiaPlace.map((item,idx)=>{
-              return <li key={'location'+(idx+1)}>{item.name}</li>
-            })
-          }
-          </ol>
+        {/* Do not remove the main div */}
+       <ol>{holidayList.map((item,idx)=> {
+        return <li key={'location'+(idx+1)}>{item.name}</li>
+       })}</ol>
       </div>
     )
   }
