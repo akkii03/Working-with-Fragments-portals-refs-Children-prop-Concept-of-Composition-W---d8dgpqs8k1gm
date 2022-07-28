@@ -38,7 +38,8 @@ class App extends Component {
 
   render() {
 
-    const indiaPlace = this.cityList.filter(place=> place.country==='India');
+ const indiaPlace = this.cityList.filter(place=> place.country==='India' && place.name==='Goa' || place.name==='Darjeeling' || place.name==='Lonavala');
+
 
     return (
       <div id="main">
