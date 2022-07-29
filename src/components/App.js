@@ -37,17 +37,18 @@ class App extends Component {
   }
 
   render() {
-    // for(let i in this.cityList) {
-    //   console.log(cityList[i]);
-    // }
 
-    // this.cityList.map((item)=>{
-    //   console.log(item.name);
-    //  })
-
+    const indiaPlace = this.cityList.filter(place=> place.country==='India');
 
     return (
       <div id="main">
+        <ol>
+          {
+            indiaPlace.map((item,idx)=>{
+              return <li key={'location'+(idx+1)}>{item.name}</li>
+            })
+          }
+          </ol>
       </div>
     )
   }
